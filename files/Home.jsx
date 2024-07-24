@@ -4,6 +4,7 @@
 
 import { motion } from "framer-motion";
 import { ToastContainer } from "react-toastify";
+import Navigation from "../components/layout/Navigation";
 
 
 
@@ -17,7 +18,7 @@ function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-
+      <Navigation />
 
       <main>
 
