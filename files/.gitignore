@@ -7,13 +7,22 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# dependencies
+/.pnp
+.pnp.js
+.history
 node_modules
 dist
 dist-ssr
 *.local
 
+# misc
 .env
 .env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +34,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+
+
+
