@@ -3,7 +3,7 @@
  *********************************************/
 
 import { useState } from "react";
-import Icon from "../../svg/Icon";
+
 
 function ScrollTo() {
   const [showScroll, setShowScroll] = useState(false);
@@ -27,7 +27,7 @@ function ScrollTo() {
       className="top"
       onClick={scrollTop}
       style={{ display: showScroll ? "flex" : "none" }}>
-      <Icon id={"up"} />
+     // add icon here
     </div>
   );
 }
