@@ -1,0 +1,25 @@
+/*********************************************
+ * scroll to top button
+ *********************************************/
+
+.top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 50px;
+  aspect-ratio: 1;
+  background: $color-primary;
+  border-radius: 4px;
+  font-size: 0;
+  z-index: 11;
+  display: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: #fff;
+  }
+}

@@ -1,0 +1,49 @@
+/*********************************************
+ * mixins
+ *********************************************/
+
+@mixin break($breakpoint...) {
+  @if length($breakpoint) ==1 {
+    @media (min-width: nth($breakpoint, 1)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: nth($breakpoint, 1)) and (max-width: nth($breakpoint, 2)) {
+      @content;
+    }
+  }
+}
+
+@mixin hide-text() {
+  text-shadow: none;
+  text-indent: 1000%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin square($size: 2rem) {
+  width: $size;
+  aspect-ratio: 1;
+}
+
+@mixin section-margin() {
+  margin: 1rem auto;
+  padding: 1rem;
+
+  @include break($medium) {
+    margin: 3rem auto;
+  }
+}
+
+@mixin heading($fow: 900, $mb: 1.6rem) {
+  font-size: clamp(2rem, 1.3077rem + 3.4615vw, 3.125rem);
+  font-weight: $fow;
+  margin-bottom: $mb;
+  font-family: $headings;
+}

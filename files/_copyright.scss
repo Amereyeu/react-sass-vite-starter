@@ -1,0 +1,17 @@
+/*********************************************
+ * copyright
+ *********************************************/
+
+.copy {
+  padding: 1rem;
+  text-align: center;
+  background-color: $color-black;
+  border-top: 1px solid $color-primary;
+  color: $color-secondary;
+  font-size: 0.875rem;
+
+  @include break($medium) {
+    font-size: 1rem;
+  }
+  
+}

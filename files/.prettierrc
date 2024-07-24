@@ -1,0 +1,12 @@
+{
+  "importOrder": [
+    "^./pages/(.*)$",
+    "^./components/(.*)$",
+    "<BUILT_IN_MODULES>",
+    "^(?!.*[.]scss$)[./].*$",
+    ".scss$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}

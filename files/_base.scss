@@ -1,0 +1,44 @@
+/*********************************************
+ * base
+ *********************************************/
+
+@import url("https://fonts.bunny.net/css2?family=Montserrat&display=swap");
+@import url("https://fonts.bunny.net/css?family=saira:400,600,900");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $primary;
+  line-height: 1.6;
+  color: $color-black;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.App {
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .content-wrap {
+    min-height: calc(100vh - 349px);
+  }
+}
+
+#reviews,
+#gallery,
+#prices,
+#faq,
+#services,
+#form {
+  scroll-margin-top: 100px;
+}
