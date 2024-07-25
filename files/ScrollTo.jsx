@@ -4,7 +4,6 @@
 
 import { useState } from "react";
 
-
 function ScrollTo() {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -27,7 +26,7 @@ function ScrollTo() {
       className="top"
       onClick={scrollTop}
       style={{ display: showScroll ? "flex" : "none" }}>
-     // add icon here
+     //add icon here
     </div>
   );
 }
