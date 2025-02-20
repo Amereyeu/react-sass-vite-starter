@@ -38,7 +38,7 @@
     "react-type-animation": "^3.2.0",
     "react": "^18.2.0",
     "reactjs-popup": "^2.0.5",
-    "sass": "^1.33.0",
+    "sass": "^1.85.0",
     "yup": "^1.2.0"
   },
   "devDependencies": {
