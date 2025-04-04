@@ -2,24 +2,33 @@
  * scroll to top button
  *********************************************/
 
-.top {
+.top-wrap {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 50px;
-  aspect-ratio: 1;
-  background: $color-primary;
-  border-radius: 4px;
-  font-size: 0;
-  z-index: 11;
-  display: none;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
+  bottom: 0;
+  width: 100%;
+  max-width: $app-width;
+  z-index: 79;
+  height: 0;
 
-  svg {
-    width: 2rem;
-    height: 2rem;
-    fill: #fff;
+  .top {
+    @include square(50px);
+
+    position: absolute;
+    bottom: $space-xxlarge;
+    right: $space-xlarge;
+    background: $color-primary;
+    border-radius: $space-small;
+    font-size: 0;
+    z-index: 11;
+    display: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $color-white;
+    }
   }
 }
