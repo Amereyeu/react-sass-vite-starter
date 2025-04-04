@@ -31,3 +31,23 @@ $primary: "Montserrat", sans-serif;
  *********************************************/
 
 $max-width: 1200px;
+$app-width: 1600px;
+
+/*********************************************
+ * padding and margin sizes   
+ *********************************************/
+
+$space-small: 0.25rem;
+$space-medium: 0.5rem;
+$space-large: 1rem;
+$space-xlarge: 1.5rem;
+$space-xxlarge: 2rem;
+$space-xxxlarge: 3rem;
+
+/*********************************************
+ * animation transtions
+ *********************************************/
+
+$transition: all 0.3s ease-in;
+$transition-long: all 0.6s ease-in;
+
