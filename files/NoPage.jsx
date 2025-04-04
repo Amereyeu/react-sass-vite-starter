@@ -1,16 +1,25 @@
 /*********************************************
  * 404 page
  *********************************************/
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function NoPage() {
   return (
-    <div className="notfound">
-      <h1>Page not found</h1>
-      <Link to="/" className="notfound__link">
-        Back to homepage
+    <motion.div
+      className="no-page"
+      id="top"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
+      <h2>Stránka nenalezena</h2>
+
+      <Link to="/" className="no-page__link">
+        Zpět na úvodní stránku
       </Link>
-    </div>
+    </motion.div>
   );
 }
 
