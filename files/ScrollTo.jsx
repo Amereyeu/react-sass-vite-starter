@@ -1,10 +1,9 @@
 /*********************************************
  * scroll to top button
  *********************************************/
-
 import { useState } from "react";
 
-function ScrollTo() {
+function ScrollToTop() {
   const [showScroll, setShowScroll] = useState(false);
 
   const checkScrollTop = () => {
@@ -22,13 +21,17 @@ function ScrollTo() {
   window.addEventListener("scroll", checkScrollTop);
 
   return (
-    <div
-      className="top"
-      onClick={scrollTop}
-      style={{ display: showScroll ? "flex" : "none" }}>
-     //add icon here
+    <div className="top-wrap">
+      <div
+        className="top"
+        onClick={scrollTop}
+        style={{ display: showScroll ? "flex" : "none" }}
+      >
+       // icon here
+      </div>
     </div>
   );
 }
 
-export default ScrollTo;
+export default ScrollToTop;
+
