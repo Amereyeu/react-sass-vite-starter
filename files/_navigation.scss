@@ -7,38 +7,33 @@
   width: 100%;
   position: fixed;
   background: $color-white;
+  top: 0;
+  box-shadow: 0 -6px 7px -7px rgba($color-primary, 0.8) inset;
 
   @include break($large) {
-    position: absolute;
-    padding: 2rem;
-    transition: all 0.3s ease-in;
-    max-width: 1600px;
+    max-width: $app-width;
   }
 
-  &.sticky2 {
-    border-bottom: 1px solid gainsboro;
-    position: fixed;
-    top: 0;
-    box-shadow: 0 2px 0 0 #333;
-
-    @include break($large) {
-      max-width: 1600px;
-      padding: 1rem;
+  &.sticky {
+    .navigation {
+      @include break($large) {
+        padding: 0 $space-large;
+      }
     }
 
     .navigation__logo {
       @include break($large) {
-        transform: scale(1);
-        transition: all 0.3s ease-in;
+        transform: scale(0.7);
+        transition: $transition;
       }
     }
   }
 
+  // mobile
   @include break(320px, 991px) {
     .navigation {
       width: 100%;
-      padding: 1em;
-      // box-shadow: 0 0 4px #333;
+      padding: $space-large;
       z-index: 49;
       will-change: transform;
       display: flex;
@@ -53,22 +48,30 @@
       }
 
       &__logo {
-        width: 180px;
-        background: url(/src/images/logo.svg) no-repeat left center;
-        padding-left: 30px;
-        font-weight: 900;
-        font-family: $headings;
-        transform: scale(1);
+        height: 63px;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 140px;
+        }
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+          text-decoration: none;
+          color: $color-black;
+        }
       }
 
       &__toggle {
+        @include square(38px);
+
         display: block;
-        border-radius: 5px;
+        border-radius: $space-small;
         background-color: transparent;
         float: right;
-        height: 38px;
-        width: 38px;
-        cursor: pointer;
         padding: 8px 8px;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
@@ -77,7 +80,7 @@
         }
 
         &.open span:nth-child(2) {
-          width: 0%;
+          width: 0;
           opacity: 0;
         }
 
@@ -90,9 +93,22 @@
           display: block;
           height: 2px;
           width: 100%;
-          margin-top: 4px;
+          margin-top: $space-small;
           background-color: $color-primary;
-          transition: all 0.25s;
+          transition: $transition;
+        }
+      }
+
+      .outer-menu {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.8s ease-out;
+        position: relative;
+        z-index: 48;
+
+        &.collapse-outer {
+          height: 100vh;
         }
       }
 
@@ -106,91 +122,100 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 4rem;
 
         &__item {
-          padding: 1.5rem 1rem;
-          font-size: 1rem;
+          padding: $space-large;
           color: $color-primary;
           text-transform: uppercase;
           text-decoration: none;
           width: 100%;
           text-align: center;
           -webkit-tap-highlight-color: $color-secondary;
-          color: $color-primary;
           letter-spacing: 0.2rem;
-          font-size: 1.2em;
-          text-transform: uppercase;
-          cursor: pointer;
           font-family: $headings;
-          font-weight: 600;
+          display: block;
+          font-weight: 900;
         }
 
-        &.collapse {
-          height: 100vh;
+        &.collapse-inner {
+          height: 60vh;
+          margin-top: 40px;
+          overflow-y: auto;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       }
     }
   }
 
+  // desktop
   @include break($large) {
     .navigation {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: $transition;
+      padding: $space-xxlarge;
 
       &__logo {
-        width: 180px;
-        background: url(/src/images/logo.svg) no-repeat left center;
-        transform: scale(1.2);
-        margin-left: 2rem;
-        padding-left: 30px;
         font-weight: 900;
-        font-family: $headings;
+        font-family: $secondary;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        transition: $transition;
+        font-size: 2rem;
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+          text-decoration: none;
+          color: $color-black;
+        }
       }
 
       &__menu {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+        gap: $space-large;
 
         &__item {
           display: flex;
           align-items: center;
           text-decoration: none;
-          transition: all 0.6s;
+          transition: $transition;
           position: relative;
-          color: $color-primary;
-          font-size: 1.1rem;
+          color: darken($color: $color-primary, $amount: 10);
           text-transform: uppercase;
-          padding: 0.5rem 1rem;
+          padding: $space-medium $space-large;
           font-family: $headings;
           font-weight: 600;
-
-          &:before,
-          &:after {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: $color-primary;
-            content: "";
-            opacity: 0;
-            transition: all 0.3s;
-          }
+          text-align: center;
 
           &:before {
-            top: 0;
-            transform: translateY(10px);
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: darken($color: $color-primary, $amount: 10);
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
           }
 
-          &:after {
-            bottom: 0;
-            transform: translateY(-10px);
-          }
-
-          &:hover:before,
-          &:hover:after {
-            opacity: 1;
-            transform: translateY(0px);
+          &:hover {
+            &::before {
+              transform: scaleX(1);
+            }
           }
         }
       }
@@ -201,12 +226,3 @@
     }
   }
 }
-
-// .fixed_body {
-//   block-size: 100%;
-//   overflow: hidden;
-
-//   @include break($large) {
-//     overflow: initial;
-//   }
-// }
