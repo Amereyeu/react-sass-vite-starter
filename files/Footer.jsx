@@ -3,7 +3,7 @@
  *********************************************/
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import data from "src/data/nav";
+import data from "src/data/navigation";
 
 function Footer() {
   const today = new Date();
