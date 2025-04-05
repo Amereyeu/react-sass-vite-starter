@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import navigationItems from "src/data/nav";
+import navigationItems from "src/data/navigation";
 
 function Navigation() {
   const [isNavOpen, setIsNavOpen] = useState(false);
