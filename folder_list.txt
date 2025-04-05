@@ -5,6 +5,7 @@
 ./src/components/layout
 ./src/components/misc
 ./src/components/partials
+./src/components/partials/contact-section
 ./src/data
 ./src/images
 ./src/pages
