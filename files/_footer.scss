@@ -6,161 +6,149 @@
   background: $color-black;
 
   .footer {
-    padding: 3rem 1rem;
+    padding: $space-xxxlarge $space-large;
     color: $color-white;
-    font-size: 0.875rem;
     max-width: $max-width;
     margin: 0 auto;
+    line-height: 1.1;
 
-    @include break(650px) {
+    @include break(646px) {
       display: grid;
-      grid-template-columns: 200px 1fr 250px;
+      grid-template-columns: 250px 360px;
+      justify-content: center;
       grid-template-areas:
-        "info info info"
-        "links contact hours";
-      justify-items: center;
+        "info info"
+        "links links"
+        "contact contact";
     }
 
     @include break($large) {
-      grid-template-columns: 1fr 1fr 150px 1fr 250px;
-      grid-template-areas: "info info links contact hours";
+      grid-template-columns: 1fr 250px 360px;
+      grid-template-areas: "info links contact";
       justify-items: initial;
-      font-size: 1rem;
-    }
-
-    h3 {
-      font-family: $headings;
-      font-weight: 600;
-      font-size: 1rem;
-      color: lighten($color: $color-primary, $amount: 20%);
-
-      @include break($medium) {
-        font-size: 1.125rem;
-      }
-
-      @include break($large) {
-        font-size: 1.25rem;
-      }
-
-      + p {
-        padding: 0;
-      }
-    }
-
-    ul {
-      list-style: none;
-
-      li {
-        padding: 0.25rem 0;
-        color: $color-secondary;
-
-        @include break($large) {
-          padding: 0;
-        }
-      }
-    }
-
-    p {
-      padding: 0.25rem 0;
-
-      @include break($large) {
-        padding: 0;
-      }
     }
 
     &__info,
     &__links,
-    &__contact,
-    &__hours {
-      padding: 1rem;
+    &__contact {
+      margin: $space-large 0;
+
+      @include break($large) {
+        padding: $space-large;
+      }
     }
 
     &__info {
+      @include flex-center();
+
       grid-area: info;
+      flex-direction: column;
       text-align: center;
-
-      @include break($large) {
-        text-align: left;
-      }
-
-      &__title {
-        display: flex;
-        margin-bottom: 1.25rem;
-        align-items: center;
-        justify-content: center;
-
-        @include break($large) {
-          justify-content: left;
-        }
-
-        svg {
-          margin-right: initial !important;
-          transform: scale(1) !important;
-          fill: #fff !important;
-        }
-
-        h3 {
-          font-family: $headings;
-          font-weight: 600;
-          font-size: 1.5rem;
-          color: lighten($color: $color-primary, $amount: 20%);
-        }
-      }
-
-      span {
-        display: block;
-        width: 150px;
-        height: 20px;
-        background: url(images/logo.svg) no-repeat center center;
-        transform: scale(1);
-        margin: 0 auto 1.25rem;
-
-        @include break($medium) {
-          transform: scale(1.2);
-        }
-      }
-
-      svg {
-        width: 2rem;
-        height: 2rem;
-        fill: white;
-        transition: all 0.4s ease-in;
-        transform: scale(1);
-        margin-right: 0.5rem;
-
-        &:hover {
-          fill: $color-primary;
-          transform: scale(1.2);
-        }
-      }
-
-      p {
-        margin-bottom: 1.25rem;
-      }
+      background-color: $color-white;
+      color: $color-black;
+      padding: $space-large;
     }
 
     &__links {
       grid-area: links;
 
-      a:link,
-      a:visited {
-        text-decoration: none;
-        color: $color-secondary;
-        transition: all 0.6s ease;
+      ul {
+        list-style: none;
+
+        li {
+          padding: $space-small 0;
+          color: $color-secondary;
+        }
       }
 
-      a:hover,
-      a:active {
-        color: $color-primary;
+      @include break(646px) {
+        text-align: center;
+
+        ul {
+          @include flex-center();
+          
+          gap: $space-large;
+        }
+      }
+
+      @include break($large) {
+        text-align: left;
+
+        ul {
+          flex-direction: column;
+          gap: 0;
+          align-items: flex-start;
+        }
       }
     }
 
     &__contact {
       grid-area: contact;
+
+      @include break(646px) {
+        display: grid;
+        grid-template-columns: 305px 305px;
+        grid-template-areas:
+          "address address"
+          "phone email";
+        text-align: center;
+
+        .address {
+          grid-area: address;
+          margin-bottom: $space-large;
+        }
+
+        .phone {
+          grid-area: phone;
+        }
+
+        .email {
+          grid-area: email;
+        }
+      }
+
+      @include break($large) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "address"
+          "phone"
+          "email";
+        text-align: left;
+
+        .address {
+          margin-bottom: 0;
+        }
+      }
     }
 
-    &__hours {
-      grid-area: hours;
+    h3 {
+      font-family: $headings;
+      font-weight: 600;
+      color: lighten($color: $color-primary, $amount: 20%);
     }
+
+    p {
+      padding: $space-small;
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+      color: $color-secondary;
+      transition: $transition-long;
+    }
+
+    a:hover,
+    a:active {
+      color: lighten($color: $color-primary, $amount: 20%);
+    }
+  }
+
+  .copyright {
+    padding: $space-large;
+    text-align: center;
+    border-top: 1px solid $color-primary;
+    color: $color-secondary;
+    font-size: 1rem;
   }
 }
